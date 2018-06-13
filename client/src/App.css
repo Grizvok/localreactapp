@@ -20,3 +20,7 @@ html, body {
   min-height: 500px;
 }
 
+a svg {
+  display: inline-block;
+   vertical-align: middle;
+}

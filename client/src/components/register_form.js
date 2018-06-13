@@ -2,23 +2,33 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, Container, Col, Row } from 'reactstrap';
 
 export default class RegisterForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
 			<Container>
-			<Row>	
-			<Col size="lg">
-      <Form>
+			<Row className="justify-content-center">	
+			<Col xs="4">
+      <Form onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+          <Input type="email" name="email" id="exampleEmail"/>
         </FormGroup>
         <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input type="password" name="password" id="Password" placeholder="password placeholder" />
+          <Label for="Password">Password</Label>
+          <Input type="password" name="password" id="Password"/>
         </FormGroup>
 				<FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input type="password" name="password" id="repeatPassword" placeholder="password placeholder" />
+          <Label for="confirmPassword">Confirm Password</Label>
+          <Input type="password" name="password" id="confirmPassword"/>
         </FormGroup>
         <Button>Submit</Button>
       </Form>
