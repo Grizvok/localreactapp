@@ -5,8 +5,8 @@ export default class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleSubmit.bind(this);
-  }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  };
 
   handleSubmit(event) {
     event.preventDefault();

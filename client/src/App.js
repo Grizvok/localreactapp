@@ -1,54 +1,32 @@
-// import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import NavigationBar from './components/nav_bar';
+import RegisterForm from './components/register_form';
+import LoginForm from './components/login_form';
+import HomeJumbotron from './components/home_jumbotron';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
+import reducers from './reducers';
+import UserList from './components/user_list';
 
 
-
-// import './App.css';
-
-// import { Navbar } from 'react-bootstrap';
-// import { Nav } from 'react-bootstrap';
-// import { NavItem } from 'react-bootstrap';
-// import { NavDropdown } from 'react-bootstrap';
-// import { MenuItem } from 'react-bootstrap';
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 
-// class App extends Component {
-//   state = {
-//     response: ''
-//   };
- 
+class App extends React.Component {
 
-//   render() {
-//     return (
+render() {
+  return (
+      <div>
+        <Route path="/" component={NavigationBar} />
+        <Route path="/register" component={RegisterForm} />
+        <Route path="/login" component={LoginForm} />
+        <Route exact path="/" component={HomeJumbotron} />
+        <Route path="/users" component={UserList} />
+      </div>
+    );
+  };
+};
 
-//       <Navbar bsStyle='default' inverse collapseOnSelect>
-//   <Navbar.Header>
-//     <Navbar.Brand>
-//       <a className="brand" href="#brand">Twitchthroe</a>
-//     </Navbar.Brand>
-//     <Navbar.Toggle />
-//   </Navbar.Header>
-//   <Navbar.Collapse>
-//     <Nav>
-//       <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-//         <MenuItem eventKey={3.1}>Action</MenuItem>
-//         <MenuItem eventKey={3.2}>Another action</MenuItem>
-//         <MenuItem eventKey={3.3}>Something else here</MenuItem>
-//         <MenuItem divider />
-//         <MenuItem eventKey={3.3}>Separated link</MenuItem>
-//       </NavDropdown>
-//     </Nav>
-//     <Nav pullRight>
-//       <NavItem role="button" eventKey={1} href="#">
-//         Login
-//       </NavItem>
-//       <NavItem eventKey={2} href="#">
-//         Register
-//       </NavItem>
-//     </Nav>
-//   </Navbar.Collapse>
-// </Navbar>
-//     );
-//   }
-// }
-
-// export default App;
+export default App;

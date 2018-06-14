@@ -7,6 +7,8 @@ import promise from 'redux-promise';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+import App from './App';
+
 
 import reducers from './reducers';
 
@@ -20,18 +22,10 @@ import HomeJumbotron from './components/home_jumbotron';
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 
-
-ReactDOM.render(
+ReactDOM.render((
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
-    	 <div className="main">
-        <header>
-          <Route path="/" component={NavigationBar} />
-        </header> 
-          <Route path="/register" component={RegisterForm} />
-          <Route path="/login" component={LoginForm} />
-    		  <Route exact path="/" component={HomeJumbotron} />
-      </div>
+      <App/>
     </BrowserRouter>
   </Provider>
-  , document.querySelector('.root'));
+), document.querySelector('.root'));
