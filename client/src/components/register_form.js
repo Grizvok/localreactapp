@@ -1,15 +1,44 @@
 import React from 'react';
+import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input, FormText, Container, Col, Row } from 'reactstrap';
 
 export default class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      email: '',
+      password: '',
+      confirmPassword: ''
+    };
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   };
+  
+  handleChange(event) {
+    const target = event.target;
+    const value = event.target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log(this.state);
+    axios.post('/api/register', {
+      email: this.state.email,
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
   }
 
   render() {
@@ -17,18 +46,18 @@ export default class RegisterForm extends React.Component {
 			<Container>
 			<Row className="justify-content-center">	
 			<Col xs="4">
-      <Form onSubmit={this.handleSubmit}>
+      <Form method="POST" onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
-          <Input type="email" name="email" id="exampleEmail"/>
+          <Input type="email" value={this.state.email} onChange={this.handleChange} name="email" id="exampleEmail"/>
         </FormGroup>
         <FormGroup>
           <Label for="Password">Password</Label>
-          <Input type="password" name="password" id="Password"/>
+          <Input type="password" value={this.state.password} onChange={this.handleChange} name="password" id="Password"/>
         </FormGroup>
 				<FormGroup>
           <Label for="confirmPassword">Confirm Password</Label>
-          <Input type="password" name="password" id="confirmPassword"/>
+          <Input type="password" value={this.state.confirmPassword} onChange={this.handleChange} name="confirmPassword" id="confirmPassword"/>
         </FormGroup>
         <Button>Submit</Button>
       </Form>

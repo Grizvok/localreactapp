@@ -1,5 +1,5 @@
 require('dotenv').config();
-const express = require('express');
+import express from 'express';
 const path = require('path');
 const app = express();
 const port = 5000;
@@ -12,6 +12,10 @@ app.get('/api/users', (req, res) => {
      {id: 1, username: "somebody"},
      {id: 2, username: "somebody_else"}
    ]);
+ });
+
+ app.post('/api/register', (req, res) => {
+   console.log(req.body);
  });
 
  app.get('*', (req, res) => {
