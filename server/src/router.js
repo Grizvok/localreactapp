@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import register from './auth/register';
+import register from './register';
 
 router.use('/api/register', register);
 

@@ -48,9 +48,9 @@ app.use(function (err, req, res, next) {
 //    ]);
 //  });
 
-//  app.post('/api/register', (req, res) => {
-//    console.log(req.body);
-//  });
+app.post('/api/register', function (req, res) {
+  console.log(req.body);
+});
 
 //  app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, '../../client/build/index.html'));

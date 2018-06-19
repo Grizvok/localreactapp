@@ -4,7 +4,7 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
-var _register = require('./auth/register');
+var _register = require('./register');
 
 var _register2 = _interopRequireDefault(_register);
 
