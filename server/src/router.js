@@ -1,8 +1,7 @@
-import express from 'express';
-const router = express.Router();
+// import express from 'express';
+// const router = express.Router();
+// const user = require('./routes/user');
 
-import register from './register';
+// router.use('/', user);
 
-router.use('/api/register', register);
-
-module.exports = router;
+// module.exports = router;

@@ -1,17 +1,8 @@
-'use strict';
+// import express from 'express';
+// const router = express.Router();
+// const user = require('./routes/user');
 
-var _express = require('express');
+// router.use('/', user);
 
-var _express2 = _interopRequireDefault(_express);
-
-var _register = require('./register');
-
-var _register2 = _interopRequireDefault(_register);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var router = _express2.default.Router();
-
-router.use('/api/register', _register2.default);
-
-module.exports = router;
+// module.exports = router;
+"use strict";
