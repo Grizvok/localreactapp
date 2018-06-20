@@ -3,18 +3,20 @@
 var Router = require('express-promise-router');
 var db = require('../db');
 var router = new Router();
+var pg = require('pg');
+var validator = require('validator');
+var session = require('express-session');
 
-router.post('/', function (req, res) {
-  var user = {
-    email: req.body.email,
-    password: req.body.password,
-    confirmPassword: req.body.confirmPassword
-  };
-  console.log(user);
+router.post('/', async function (req, res) {
+  var emailStatus = await checkUserEmail(req.body.email);
+  var passwordStatus = await doPasswordsMatch(req.body.password, req.body.confirmPassword);
+  var passwordLengthStatus = await checkPasswordLength(req.body.password);
 });
 
-// router.get('/', (req, res) => {
-//   console.log(req);
-// });
+function checkUserEmail(email) {
+  return new Promise(function (resolve) {
+    resolve(validator.isEmail(email));
+  });
+}
 
 module.exports = router;

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Form, FormGroup, Label, Input, FormText, Container, Col, Row, FormFeedback } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, Container, Col, Row, FormFeedback, Tooltip } from 'reactstrap';
 
 export default class RegisterForm extends React.Component {
   constructor(props) {
@@ -8,7 +8,8 @@ export default class RegisterForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      isValid: 'valid'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -49,9 +50,9 @@ export default class RegisterForm extends React.Component {
       <Form method="POST" onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
-          <Input valid type="email" value={this.state.email} onChange={this.handleChange} name="email" id="exampleEmail" required/>
+          <Input valid={this.state.isValid} type="email" value={this.state.email} onChange={this.handleChange} name="email" id="exampleEmail" required/>
           <FormFeedback valid>Sweet! that name is available</FormFeedback>
-          <FormText>Example help text that remains unchanged.</FormText>
+          <FormText>Please enter a valid email.</FormText>
         </FormGroup>
         <FormGroup>
           <Label for="Password">Password</Label>
@@ -65,7 +66,7 @@ export default class RegisterForm extends React.Component {
       </Form>
 			</Col>
 			</Row>
-			</Container>
+      </Container>
     );
   }
 }
