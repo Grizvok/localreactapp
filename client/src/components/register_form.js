@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Form, FormGroup, Label, Input, FormText, Container, Col, Row } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, Container, Col, Row, FormFeedback } from 'reactstrap';
 
 export default class RegisterForm extends React.Component {
   constructor(props) {
@@ -49,15 +49,17 @@ export default class RegisterForm extends React.Component {
       <Form method="POST" onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
-          <Input type="email" value={this.state.email} onChange={this.handleChange} name="email" id="exampleEmail"/>
+          <Input valid type="email" value={this.state.email} onChange={this.handleChange} name="email" id="exampleEmail" required/>
+          <FormFeedback valid>Sweet! that name is available</FormFeedback>
+          <FormText>Example help text that remains unchanged.</FormText>
         </FormGroup>
         <FormGroup>
           <Label for="Password">Password</Label>
-          <Input type="password" value={this.state.password} onChange={this.handleChange} name="password" id="Password"/>
+          <Input type="password" value={this.state.password} onChange={this.handleChange} name="password" id="Password" required/>
         </FormGroup>
 				<FormGroup>
           <Label for="confirmPassword">Confirm Password</Label>
-          <Input type="password" value={this.state.confirmPassword} onChange={this.handleChange} name="confirmPassword" id="confirmPassword"/>
+          <Input type="password" value={this.state.confirmPassword} onChange={this.handleChange} name="confirmPassword" id="confirmPassword" required/>
         </FormGroup>
         <Button>Submit</Button>
       </Form>
