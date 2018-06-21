@@ -23,6 +23,17 @@ export default class Example extends React.Component {
       isOpen: false
     };
   }
+
+  /**
+   * You could rewrite toggle like this to escape the need to do manual .bind:
+   * 
+   * toggle = () => { 
+   *   this.setState({...});
+   * }
+   * 
+   * This will auto-bind toggle to current instance
+   */
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen

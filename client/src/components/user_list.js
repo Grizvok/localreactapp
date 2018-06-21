@@ -5,6 +5,10 @@ class UserList extends React.Component {
     super(props);
 
     this.state = { users: [] };
+
+    /**
+     * There's no need to do this since you do not call `componentDidMount` manually
+     */
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
