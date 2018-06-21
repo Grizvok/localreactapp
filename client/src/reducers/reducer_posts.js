@@ -6,6 +6,9 @@ export default function (state = {}, action) {
 	case FETCH_POSTS:
 		return _.mapKeys(action.payload.data, 'id');
 
+	/**
+	 * This console.log will never execute. Why is it here? 🤔
+	 */
 	console.log(action.payload.data);
 		default:
 			return state;

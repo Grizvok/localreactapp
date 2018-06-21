@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Once again - tabs and spaces mixed together 
+ */
+
 class MouseIcon extends React.Component {
   render() {
     return (

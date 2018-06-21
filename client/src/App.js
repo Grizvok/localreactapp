@@ -10,7 +10,9 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import UserList from './components/user_list';
 
-
+/**
+ * This variable is never used and should probably be removed (along with all the deps that are used for it).
+ */
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 

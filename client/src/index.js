@@ -12,6 +12,9 @@ import App from './App';
 
 import reducers from './reducers';
 
+/**
+ * Those vars are not used here and should be removed
+ */
 import NavigationBar from './components/nav_bar';
 import RegisterForm from './components/register_form';
 import LoginForm from './components/login_form';

@@ -12,6 +12,10 @@ export default class RegisterForm extends React.Component {
     event.preventDefault();
   }
 
+/**
+ * You mix tabs and spaces in one file - again that problem with consistent formatting :)
+ */
+
   render() {
     return (
 			<Container>
